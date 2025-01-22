@@ -11,7 +11,7 @@ html, body {
     scroll-behavior: smooth;
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
-    background-color: var(--third-color)
+    background-color: var(--third-color);
 }
 h1, h2, p {
     margin: 0;
@@ -30,10 +30,11 @@ img {
     display: block;
 }
 
-/* _____root_____ */
+/* 
+_____root section_____ */
 /* _____color_____ */
 :root {
-    --first-color: rgba(0, 204, 102, .9 );
+    --first-color: rgba(0, 204, 102);
     --second-color: rgb(0, 26, 51);
     --third-color: #ccffff;
 }
@@ -66,71 +67,136 @@ _____header section_____
     width: 100%;
     height: 100%;
 }
-.nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 3rem;
-}
-.nav-logo {
+.nav-bar .nav-logo {
     color: var(--third-color);
     font-size: 1.5rem;
     text-shadow: 2px 2px 5px var(--first-color);
 }
-nav img:hover {
-    width: 47px;
+.nav-menu .nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4rem;
 }
 .nav-menu .nav-list li a {
     color: var(--third-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     letter-spacing: 1px;
-    flex-wrap: nowrap;
 }
-.nav-menu .nav-link {
+.nav-list .nav-link {
     position: relative;
 }
-.nav-menu .nav-link:hover {
+.nav-list .nav-link:hover {
     position: relative;
 }
-
-.nav-menu .nav-link:hover::after {
+.nav-list .nav-link:hover::after {
     position: absolute;
     content: "";
     width: 100%;
     height: 0.18rem;
     left: 0;
-    top: 1.5rem;
+    top: 1.7rem;
     background-color: var(--first-color);
 }
-.nav-menu .nav-link.active::after {
+.nav-list .nav-link.active::after {
     position: absolute;
     content: "";
     width: 100%;
     height: 0.18rem;
     left: 0;
-    top: 1.5rem;
+    top: 1.7rem;
     background-color: var(--first-color);
 }
-.nav-link .bx {
-    font-size: 1.8rem;
+.nav-list .nav-link .bx {
+    font-size: 1.7rem;
     color: var(--third-color);
 }
-.nav-toggle {
+.nav-bar .nav-toggle {
     display: none;
 }
 /* 
 
-_____home css_____
+_____header responsive ( media queries )_____
+*/
+@media screen and (max-width: 1024px) { 
+    .nav-bar .nav-logo {
+        font-size: 1.4rem;
+    }
+    .nav-menu .nav-list {
+        gap: 3rem;
+    }
+    .nav-menu .nav-list li a {
+        font-size: 1.1rem;
+    }
+    .nav-list .nav-link .bx {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 4.4rem;
+        right: -100%;
+        width: 80%;
+        height: 100%;
+        padding: 3rem;
+        background-color: var(--second-color);
+        transition: .5s;
+        border: 1px solid var(--first-color);
+    }
+    .nav-menu .nav-list {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .nav-list .nav-item {
+        margin-bottom: 1rem;
+    }
+    .nav-menu .nav-list li a {
+        font-size: 1.05rem;
+    }
+    .nav-list .nav-link .bx {
+        font-size: 1.4rem;
+    }
+    .nav-bar .nav-logo {
+        font-size: 1.3rem;
+    }
+    .nav-bar .nav-toggle {
+        display: block;
+        color: var(--first-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    .show {
+        right: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .nav-bar .nav-logo {
+        font-size: 1.2rem;
+    }
+    .nav-menu .nav-list li a {
+        font-size: 1rem;
+    }
+    .nav-list .nav-link .bx {
+        font-size: 1.3rem;
+    }
+    .nav-bar .nav-toggle {
+        font-size: 1.3rem;
+    }
+}
+/* 
+
+_____home section_____
 */
 .home-container {
-    margin-left: 4.5rem;
+    margin-left: 2.5rem;
 }
 .home-content {
     display: flex;
     justify-content: space-around;
     align-items: center;    
 }
-.home-img {
+.home-content .home-img {
     width: 600px;
     margin-top: 9rem;
     animation: floatImage 4s ease-in-out infinite;
@@ -146,15 +212,18 @@ _____home css_____
         transform: translateY(0);
     }
 }
-.home-data {
+.home-content .home-data {
     margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
 }
-.home-title {
+.home-data .home-title {
     color: var(--second-color);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    white-space: nowrap;
 }
-.home-title-name {
+.home-data .home-title-name {
     display: flex;
     flex-wrap: nowrap;
     margin-bottom: -2rem ;
@@ -162,14 +231,18 @@ _____home css_____
     text-shadow: 3px 3px 3px var(--second-color);
     font-size: 3rem;
 }
-.home-contact-data {
+.home-data .home-contact-data {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 .home-button1 {
     display: flex;
-    gap: 1rem; 
+    gap: 2rem; 
+}
+.home-button1 a {
+    white-space: nowrap;
 }
 .home-button2 {
     display: flex;
@@ -180,16 +253,18 @@ _____home css_____
     color: var(--third-color);
     background-color: var(--second-color);
     font-size: 1rem;
-    border: 1px solid var(--first-color);
+    border: 1px solid var(--third-color);
     border-radius: 50px;
     padding: .5rem 1rem;
 }
 .home-button1 a:hover, .home-button2 a:hover {
     color: var(--first-color);
+    border: 1px solid var(--first-color);
 }
 .home-button2 button {
     color: rgb(0, 26, 51, .8);
     background-color: var(--third-color);
+    font-size: .9rem;
     font-weight: bold;
     border: 1px solid var(--first-color);
     border-radius:50px;
@@ -199,8 +274,8 @@ _____home css_____
     color: var(--second-color);
 }
 .home-button2 i {
-    margin-left: -1.5rem;
     margin-top: .5rem;
+    margin-left: -1.5rem;
     animation: floatDownloadTab 3s ease-in-out infinite;
 }
 @keyframes floatDownloadTab {
@@ -213,10 +288,6 @@ _____home css_____
     100% {
         transform: translateY(0);
     }
-}
-span .bx {
-    color: var(--second-color);
-    font-size: 2rem;
 }
 .home-button2 .bx {
     color: rgb(0, 26, 51, .8);
@@ -234,10 +305,10 @@ span .bx {
 .home-social-contact-icon {
     margin: 0 .2rem;
     padding: .4rem .4rem;
-    font-size: 1rem;
-    border-radius: 50%;
     color: var(--third-color);
     background-color: var(--second-color);
+    font-size: 1rem;
+    border-radius: 50%;
 }
 .home-social-contact-icon:hover {
     color: var(--first-color);
@@ -280,6 +351,190 @@ span .bx {
 }
 .arrow2 {
     display: none;
+}
+/* 
+
+_____home responsive ( media queries )_____
+*/
+@media screen and (max-width: 1187px) {
+    .arrow {
+        display: none;
+    }
+    .arrow2 {
+        color: var(--second-color);
+        display: block;
+    }
+    .arrow2 i {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .home-container {
+        margin-left: 2rem;
+    }
+    .home-content .home-img {
+        width: 450px;
+    }
+    .home-data .home-title  {
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+    }
+    .home-data .home-title-name {
+        margin-bottom: -1.5rem ;
+        font-size: 2.5rem;
+    }
+    .home-data .home-contact-data {
+        gap: 2rem;
+    }
+    .home-social-contact-icon {
+        margin: 0 .2rem;
+        padding: .39rem .39rem;
+        font-size: .8rem;
+    }
+    .home-button2 {
+        gap: 1.5rem; 
+    }
+    .home-button1 a, .home-button2 a {
+        font-size: .9rem;
+    }
+    .home-button2 button {
+        font-size: .8rem;
+        padding: .3rem .6rem;
+    }
+    .home-button2 i {
+        margin-left: -.9rem;
+        margin-top: .6rem;
+    }
+    .home-button2 .bx {
+        font-size: 1.5rem;
+    }
+    .arrow {
+        display: none;
+    }
+    .arrow2 {
+        color: var(--second-color);
+        display: block;
+    }
+    .arrow2 i {
+        font-size: 1.7rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .home-container {
+        margin-left: 1.5rem;
+    }
+    .home-content .home-img {
+        width: 350px;
+    }
+    .home-data .home-title  {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+    .home-data .home-title-name {
+        margin-bottom: -1.5rem ;
+        font-size: 2rem;
+    }
+    .home-data .home-contact-data {
+        gap: 1rem;
+    }
+    .home-social-contact-icon {
+        margin: 0 .2rem;
+        padding: .29rem .29rem;
+        font-size: .7rem;
+    }
+    .home-button2 {
+        gap: 1.2rem; 
+    }
+    .home-button1 a, .home-button2 a {
+        font-size: .8rem;
+    }
+    .home-button2 button {
+        font-size: .7rem;
+        padding: .2rem .4rem;
+    }
+    /* .home-button2 i { */
+        /* margin-left: -.9rem; */
+        /* margin-top: .6rem; */
+    /* } */
+    .home-button2 .bx {
+        font-size: 1.3rem;
+    }
+    .arrow {
+        display: none;
+    }
+    .arrow2 {
+        color: var(--second-color);
+        display: block;
+    }
+    .arrow2 i {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .home-container {
+        margin-left: 1.2rem;
+    }
+    .home-content .home-img {
+        width: 350px;
+    }
+    .home-data .home-title  {
+        font-size: 1.2rem;
+        margin-bottom: 1.1rem;
+    }
+    .home-data .home-title-name {
+        margin-bottom: -1.5rem ;
+        font-size: 1.7rem;
+    }
+    .home-data .home-contact-data {
+        gap: .8rem;
+    }
+    .home-social-contact-icon {
+        margin: 0 .2rem;
+        padding: .22rem .22rem;
+        font-size: .6rem;
+    }
+    .home-button2 {
+        gap: 1.1rem; 
+    }
+    .home-button1 a, .home-button2 a {
+        font-size: .7rem;
+    }
+    .home-button2 button {
+        font-size: .6rem;
+        padding: .17rem .34rem;
+    }
+    /* .home-button2 i { */
+        /* margin-left: -.9rem; */
+        /* margin-top: .6rem; */
+    /* } */
+    .home-button2 .bx {
+        font-size: 1.1rem;
+    }
+    .arrow {
+        display: none;
+    }
+    .arrow2 {
+        color: var(--second-color);
+        display: block;
+    }
+    .arrow2 i {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 550px) {
+    .home-container {
+        margin-top: 3rem;
+    }
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .home-content .home-img {
+        width: 300px;
+        margin-top: 1rem;
+    }
+
 }
 /* 
 
@@ -400,9 +655,91 @@ span.red-text {
 .fun-fact-social-icon:hover {
     color: var(--first-color);
 }
+ /* 
+ 
+ _____about responsive ( media queries )_____
+ */
+ @media screen and (max-width: 1024px) {
+    .about-container {
+        margin-top: 3rem;
+    }
+    .about-title {
+        font-size: 1.9rem;
+    }
+    .about-img {
+        width: 250px;
+        animation: floatImage 4s ease-in-out infinite;
+    }
+    .about-text {
+        flex-direction: column;
+    }
+    .vertical-line {
+        border: 1px solid rgba(0, 26, 51, 0.7);
+        width: 500px;
+        height: 1px;
+    }
+    .fun-fact-title {
+        font-size: 1.9rem;
+    }
+    .fun-fact-title2 {
+        font-size: 1.7rem;
+    }
+    .fun-fact-subtitle {
+        font-size: 1.3rem;
+    }
+    .fun-fact-social-icon {
+        margin: 0 .1rem;
+        padding: .3rem .3rem;
+        font-size: .9rem;
+    }
+}
+ @media screen and (max-width: 768px) {
+    .about-container {
+        margin-top: 3rem;
+    }
+    .about-title {
+        font-size: 1.7rem;
+    }
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    .about-img {
+        width: 200px;
+        animation: floatImage 4s ease-in-out infinite;
+    }
+    .about-text {
+        flex-direction: column;
+    }
+    .about-subtext {
+        font-size: 1.1rem;
+    }
+    .about-text button {
+        padding: .3rem .6rem;
+    }
+    span.red-text {
+        font-size: 1.1rem;
+    }
+    .fun-fact-title {
+        font-size: 1.5rem;
+    }
+    .fun-fact-title2 {
+        font-size: 1.5rem;
+    }
+    .fun-fact-subtitle {
+        font-size: 1.2rem;
+    }
+    .fun-fact-social-icon {
+        margin: 0 .1rem;
+        padding: .3rem .3rem;
+        font-size: .8rem;
+    }
+}
 /* 
 
-_____services_____
+_____services section_____
  */
 .services-container {
     min-height: 100vh;
@@ -484,7 +821,7 @@ _____services_____
 }
 /* 
 
-_____help section_____
+_____services ( help section )_____
 */
 .help-contain {
     display: flex;
@@ -525,8 +862,18 @@ _____help section_____
     font-weight: bold;
 }
 /* 
+    
+_____services responsive ( media queries )_____
+*/
+.services-title {
+    font-size: 1.7rem;
+}
+/* _____services ( help section ) responsive_____*/
+.help-contain {
+}
+/* 
 
-_____works_____ 
+_____works section_____ 
 */
 .works-container {
     max-width: 1200px;
@@ -545,10 +892,9 @@ _____works_____
     justify-content: center;
     margin-top: 3rem;
     overflow: hidden;
-    border-radius: 25px;
     padding: 0 24px;
-    margin-right: 3rem;
-    margin-left: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 .swiper-navbtn {
     color: var(--second-color);
@@ -567,8 +913,8 @@ _____works_____
 .swiper-button-prev {
     left: 0;
 }
-.swiper-pagination {
-    /* color: red; */
+.swiper-pagination-bullet {
+    background-color: var(--second-color);
 }
 .swiper-btn {
     margin-top: 4rem;
@@ -674,10 +1020,9 @@ _____works_____
 }
 /* 
 
-_____ [Works] Project Css _____
+_____works ( projects section )_____
 */
 .admin-container {
-    /* max-height: 100px; */
     margin: 5rem;
     width: 100%;
     height: 100vh;
@@ -817,8 +1162,179 @@ _____ [Works] Project Css _____
     /* margin-top: .5rem; */
 }
 /* 
+  
+____works responsive ( media queries )_____
+*/
+@media screen and (max-width: 1024px) {
+    .works-container {
+        padding: 0 5rem;
+    }
+    .works-title {
+        font-size: 1.7rem;
+    } 
+    .works-content {
+        padding: 0 24px;
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-navbtn::before,
+    .swiper-navbtn::after {
+        font-size: 30px;
+    }
+    .swiper-button-next {
+        right: 4rem;
+    }
+    .swiper-button-prev {
+        left: 4rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .works-container {
+        padding: 0 8rem;
+    }
+    .works-title {
+        font-size: 1.5rem;
+    } 
+    .works-content {
+        padding: 0 24px;
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-navbtn::before,
+    .swiper-navbtn::after {
+        font-size: 25px;
+    }
+    .swiper-button-next {
+        right: 6rem;
+    }
+    .swiper-button-prev {
+        left: 6rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .works-container {
+        padding: 0 7rem;
+    }
+    .works-content {
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-button-next {
+        right: 5rem;
+    }
+    .swiper-button-prev {
+        left: 5rem;
+    }
+}
+@media screen and (max-width: 550px) {
+    .works-container {
+        padding: 0 5rem;
+    }
+    .works-content {
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-navbtn::before,
+    .swiper-navbtn::after {
+        font-size: 25px;
+    }
+    .swiper-button-next {
+        right: 3rem;
+    }
+    .swiper-button-prev {
+        left: 3rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .works-container {
+        padding: 0 3rem;
+    }
+    .works-content {
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-navbtn::before,
+    .swiper-navbtn::after {
+        font-size: 25px;
+    }
+    .swiper-button-next {
+        right: 1rem;
+    }
+    .swiper-button-prev {
+        left: 1rem;
+    }
+}
+@media screen and (max-width: 420px) {
+    .works-container {
+        padding: 0 1rem;
+    }
+    .works-content {
+        margin-right: 0rem;
+        margin-left: 0rem;
+    }
+    .swiper-navbtn::before,
+    .swiper-navbtn::after {
+        font-size: 25px;
+    }
+    .swiper-button-next {
+        right: 0rem;
+    }
+    .swiper-button-prev {
+        left: 0rem;
+    }
+}
+/* 
 
-_____skills_____
+_____works ( projects section ) responsive_____
+*/
+@media screen and (max-width: ) {
+    /* .admin-content { */
+        /* width: 100%; */
+        /* max-width: 750px; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+    /* } */
+    /* .image-area { */
+        /* flex-direction: column; */
+    /* } */
+    /* .image-area img { */
+        /* width: 550px; */
+        /* height: 350px; */
+    /* } */
+    /* .main-title { */
+        /* font-size: 1.5rem; */
+    /* } */
+    /* .sub-title { */
+        /* font-size: 1.2rem; */
+    /* } */
+    /* .project-details { */
+        /* margin: 0 3rem 5rem 3rem; */
+    /* } */
+    /* .project-details p { */
+        /* font-size: 1.1rem; */
+    /* } */
+    /* .justify p { */
+        /* text-align: justify; */
+        /* line-height: 1.5rem; */
+    /* } */
+    /* .admin-button button { */
+        /* padding: .3rem .6rem; */
+        /* margin: 0 1.2rem; */
+    /* } */
+    /* .image-area button { */
+        /* font-size: 2rem; */
+    /* } */
+    /* .back-button p { */
+        /* font-size: 1.3rem; */
+    /* } */
+    /* .project-details span { */
+        /* font-size: 1.1rem; */
+    /* } */
+}
+/* 
+
+_____skills section_____
 */
 .skills-container {
     margin: 7rem auto;
@@ -1225,172 +1741,113 @@ _____footer section_____
     font-size: 1rem;
     padding-bottom: 2.5rem;
 }
-/* 
-
-_____media queries_____ 
-*/
-@media screen and (max-width: 768px) {
     /* 
     
-    _____header responsive_____
+    ______works responsive_____
     */
-    .nav-menu {
-        position: fixed;
-        top: 4.4rem;
-        right: -100%;
-        width: 80%;
-        height: 100%;
-        padding: 2rem;
+     /* 
+ 
+ _____ [works] project css _____
+    */
+    /* 
+    
+    _____skills responsive_____
+    */
+    .skills-title {
+        font-size: 1.7rem;
+    }
+    .skills-container img {
+        width: 300px;
+        height: 300px;
+        /* margin: auto; */
+        margin-top: 15rem;
+        /* margin-bottom: 3rem; */
+    }
+    .skill-icon {
+        font-size: 1.8rem;
+    }
+    .skill-name {
+        font-size: 1.1rem;
+    }
+    /* 
+    
+    _____testimonial responsive_____
+    */
+    .testimonial-title {
+        font-size: 1.9rem;
+    }
+    .profile .card-image {
+        width: 50px;
+        height: 50px;
+    }
+    .profile-description span:nth-child(1) {
+        font-size: 15px;
+    }
+    .profile-description span:nth-child(2) {
+        font-size: 12px;
+    }
+    .owl-nav {
+        right: 3px;
+        bottom: -.7rem;
+    }
+    .owl-nav button {
+        border-radius: 50% !important;
+    }
+    .owl-nav .owl-prev i,
+    .owl-nav .owl-next i {
+        padding: 10px !important;
+        border-radius: 50%;
+        font-size: 18px;
         background-color: var(--second-color);
-        transition: .5s;
-        border: 1px solid var(--first-color);
-    }
-    .nav-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-item {
-        margin-bottom: 1rem;
-    }
-    .nav-link {
-        position: relative;
         color: var(--third-color);
-    }
-    .nav-link:hover {
-        position: relative;
-    }
-    .nav-link:hover::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 0.18rem;
-        left: 0;
-        top: 1.5rem;
-        background-color: var(--first-color)
-    }
-    .nav-toggle {
-        display: block;
-        color: var(--first-color);
-        font-size: 1.5rem;
         cursor: pointer;
+        transition: 0.3s ease;
     }
-    .active::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 0.18rem;
-        left: 0;
-        top: 1.5rem;
-        background-color: var(--first-color)
-        }
-    .show {
-        right: 0;
+    .owl-nav .owl-prev i:hover,
+    .owl-nav .owl-next i:hover {
+        background-color: var(--first-color);
     }
-    /* 
-    
-    _____home responsive_____
-    */
-    .home-img {
-        width: 350px;
-    }
-    .home-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    .home-title-name {
-        margin-bottom: -1rem ;
-        font-size: 2.2rem;
-    }
-    .home-button2 {
-        gap: 1rem; 
-    }
-    .home-button1 a, .home-button2 a {
-        font-size: .8rem;
-    }
-    .home-button2 button {
-        padding: .3rem .6rem;
-    }
-    .home-button2 i {
-        margin-left: -.7rem;
-        margin-top: .5rem;
-    }
-    .home-button2 .bx {
-        font-size: 1.5rem;
-    }
-    .home-social-contact {
-        gap: .5rem;
-        margin-right: 1.5rem;
-    }
-    .home-social-contact-icon {
-        margin: 0 .1rem;
-        padding: .3rem .3rem;
-        font-size: .8rem;
-    }
-    .arrow {
-        display: none;
-    }
-    .arrow2 {
-        color: var(--second-color);
-        display: block;
-    }
-    /* 
-    
-    _____about responsive_____
-    */
-    .about-container {
+    .owl-dots {
         margin-top: 3rem;
     }
-    .about-title {
-        font-size: 1.7rem;
+    .owl-dots .owl-dot span {
+        background-color: var(--second-color) !important;
+        padding: 6px !important;
     }
-    .about-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
+     /*contacts responsive  */    
+    .contact_background {
+        height: 30vh;
     }
-    .about-img {
-        width: 200px;
-        animation: floatImage 4s ease-in-out infinite;
+    .contact_background h3 {
+        font-size: 1rem;
     }
-    .about-text {
-        flex-direction: column;
+    .contact_background h1 {
+        font-size: 2 rem;
+        /* padding: 0.4rem 0; */
+    } 
+    .contact_form form div {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .about-subtext {
-        font-size: 1.1rem;
-    }
-    .vertical-line {
-        border: 1px solid rgba(0, 26, 51, 0.7);
-        width: 500px;
-        height: 1px;
-    }
-    .about-text button {
-        padding: .3rem .6rem;
-    }
-    span.red-text {
-        font-size: 1.1rem;
-    }
-    .fun-fact-title {
-        font-size: 1.5rem;
-    }
-    .fun-fact-title2 {
-        font-size: 1.5rem;
-    }
-    .fun-fact-subtitle {
-        font-size: 1.2rem;
-    }
-    .fun-fact-social-icon {
-        margin: 0 .1rem;
-        padding: .3rem .3rem;
-        font-size: .8rem;
+    .send_button {
+        font-size: .9rem;
+        padding: .4rem .8rem;
     }
     /* 
     
-    _____services responsive_____
+    _____footer responsive_____
     */
-    .services-title {
-        font-size: 1.7rem;
+    .footer-container h3 {
+        font-size: 1.5rem;
+    }
+    .social_links a {
+        font-size: 1rem;
+        width: 35px;
+        height: 35px;
+        border: 1px solid var(--second-color);
+        margin: 0.3rem;
+    }
+    .footer-container p {
+        font-size: .9rem;
     }
     /* 
     
@@ -1408,86 +1865,8 @@ _____media queries_____
     .help-contain .back-button p {
         font-size: 1.3rem;
     }
-    /* 
-    
-    ______works responsive_____
-    */
-    .works-container {
-        padding: 0 5rem;
-    }
-    .works-title {
-        font-size: 1.7rem;
-    }
-    .works-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 3rem;
-        overflow: hidden;
-        border-radius: 25px;
-        padding: 0 24px;
-        margin-right: 3rem;
-        margin-left: 3rem;
-    }
-    .swiper-navbtn::before,
-    .swiper-navbtn::after {
-        font-size: 30px;
-    }
-    .swiper-button-next {
-        right: 4rem;
-    }
-    .swiper-button-prev {
-        left: 4rem;
-    }
-    .works-content .card {
-    }
-     /* 
  
- _____ [works] project css _____
-    */
-    .admin-content {
-        width: 100%;
-        /* max-width: 750px; */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .image-area {
-        flex-direction: column;
-    }
-    .image-area img {
-        width: 550px;
-        height: 350px;
-    }
-    .main-title {
-        font-size: 1.5rem;
-    }
-    .sub-title {
-        font-size: 1.2rem;
-    }
-    .project-details {
-        margin: 0 3rem 5rem 3rem;
-    }
-    .project-details p {
-        font-size: 1.1rem;
-    }
-    .justify p {
-        text-align: justify;
-        line-height: 1.5rem;
-    }
-    .admin-button button {
-        padding: .3rem .6rem;
-        margin: 0 1.2rem;
-    }
-    .image-area button {
-        font-size: 2rem;
-    }
-    .back-button p {
-        font-size: 1.3rem;
-    }
-    .project-details span {
-        font-size: 1.1rem;
-    }
+ _
     /* 
     
     _____skils responsive_____
@@ -1594,289 +1973,6 @@ _____media queries_____
     }
     .footer-container p {
         font-size: .8rem;
-    }
-}
-@media screen and (max-width: 1024px) {    
-    /* 
-    
-    _____home responsive_____
-    */
-    .home-img {
-        width: 450px;
-    }
-    .home-title {
-        font-size: 2.2rem;
-        margin-bottom: 1.2rem;
-    }
-    .home-title-name {
-        margin-bottom: -1.5rem ;
-        font-size: 2.5rem;
-    }
-    .home-button2 {
-        gap: 1.5rem; 
-    }
-    .home-button1 a, .home-button2 a {
-        font-size: .9rem;
-    }
-    .home-button2 button {
-        padding: .3rem .6rem;
-    }
-    .home-button2 i {
-        margin-left: -.9rem;
-        margin-top: .6rem;
-    }
-    .home-button2 .bx {
-        font-size: 1.5rem;
-    }
-    .home-social-contact {
-        gap: .5rem;
-        margin-right: 1.5rem;
-    }
-    .home-social-contact-icon {
-        margin: 0 .2rem;
-        padding: .4rem .4rem;
-        font-size: .8rem;
-    }
-    .arrow {
-        display: none;
-    }
-    .arrow2 {
-        color: var(--second-color);
-        display: block;
-    }
-    /* 
-    
-    _____about responsive_____
-    */
-    .about-container {
-        margin-top: 3rem;
-    }
-    .about-title {
-        font-size: 1.9rem;
-    }
-    .about-img {
-        width: 250px;
-        animation: floatImage 4s ease-in-out infinite;
-    }
-    .about-text {
-        flex-direction: column;
-    }
-    .fun-fact-title {
-        font-size: 1.9rem;
-    }
-    .fun-fact-title2 {
-        font-size: 1.7rem;
-    }
-    .fun-fact-subtitle {
-        font-size: 1.3rem;
-    }
-    .fun-fact-social-icon {
-        margin: 0 .1rem;
-        padding: .3rem .3rem;
-        font-size: .9rem;
-    }
-    /* 
-    
-    _____services responsive_____
-    */
-    .services-title {
-        font-size: 1.9rem;
-    }
-    /* 
-    
-    _____help responsive_____
-    */
-    .help-contain h1 {
-        font-size: 2rem;
-    }
-    .help-contain h2 {
-        font-size: 1.5rem;
-    }
-    .help-contain button {
-        font-size: 2rem;
-    }
-    .help-contain .back-button p {
-        font-size: 1.3rem;
-    }
-    /* 
-    
-    ______works responsive_____
-    */
-    .works-container {
-        padding: 0 5rem;
-    }
-    .works-title {
-        font-size: 1.7rem;
-    }
-    .works-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 3rem;
-        overflow: hidden;
-        border-radius: 25px;
-        padding: 0 24px;
-        margin-right: 3rem;
-        margin-left: 3rem;
-    }
-    .swiper-navbtn::before,
-    .swiper-navbtn::after {
-        font-size: 30px;
-    }
-    .swiper-button-next {
-        right: 4rem;
-    }
-    .swiper-button-prev {
-        left: 4rem;
-    }
-    .works-content .card {
-    }
-     /* 
- 
- _____ [works] project css _____
-    */
-    .admin-content {
-        width: 100%;
-        /* max-width: 750px; */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .image-area {
-        flex-direction: column;
-    }
-    .image-area img {
-        width: 550px;
-        height: 350px;
-    }
-    .main-title {
-        font-size: 1.5rem;
-    }
-    .sub-title {
-        font-size: 1.2rem;
-    }
-    .project-details {
-        margin: 0 3rem 5rem 3rem;
-    }
-    .project-details p {
-        font-size: 1.1rem;
-    }
-    .justify p {
-        text-align: justify;
-        line-height: 1.5rem;
-    }
-    .admin-button button {
-        padding: .3rem .6rem;
-        margin: 0 1.2rem;
-    }
-    .image-area button {
-        font-size: 2rem;
-    }
-    .back-button p {
-        font-size: 1.3rem;
-    }
-    .project-details span {
-        font-size: 1.1rem;
-    }
-    /* 
-    
-    _____skils responsive_____
-    */
-    .skills-title {
-        font-size: 1.7rem;
-    }
-    .skills-container img {
-        width: 300px;
-        height: 300px;
-        /* margin: auto; */
-        margin-top: 15rem;
-        /* margin-bottom: 3rem; */
-    }
-    .skill-icon {
-        font-size: 1.8rem;
-    }
-    .skill-name {
-        font-size: 1.1rem;
-    }
-    /* 
-    
-    _____testimonial responsive_____
-    */
-    .testimonial-title {
-        font-size: 1.9rem;
-    }
-    .profile .card-image {
-        width: 50px;
-        height: 50px;
-    }
-    .profile-description span:nth-child(1) {
-        font-size: 15px;
-    }
-    .profile-description span:nth-child(2) {
-        font-size: 12px;
-    }
-    .owl-nav {
-        right: 3px;
-        bottom: -.7rem;
-    }
-    .owl-nav button {
-        border-radius: 50% !important;
-    }
-    .owl-nav .owl-prev i,
-    .owl-nav .owl-next i {
-        padding: 10px !important;
-        border-radius: 50%;
-        font-size: 18px;
-        background-color: var(--second-color);
-        color: var(--third-color);
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-    .owl-nav .owl-prev i:hover,
-    .owl-nav .owl-next i:hover {
-        background-color: var(--first-color);
-    }
-    .owl-dots {
-        margin-top: 3rem;
-    }
-    .owl-dots .owl-dot span {
-        background-color: var(--second-color) !important;
-        padding: 6px !important;
-    }
-     /*contacts responsive  */    
-    .contact_background {
-        height: 30vh;
-    }
-    .contact_background h3 {
-        font-size: 1rem;
-    }
-    .contact_background h1 {
-        font-size: 2 rem;
-        /* padding: 0.4rem 0; */
-    } 
-    .contact_form form div {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .send_button {
-        font-size: .9rem;
-        padding: .4rem .8rem;
-    }
-    /* 
-    
-    _____footer responsive_____
-    */
-    .footer-container h3 {
-        font-size: 1.5rem;
-    }
-    .social_links a {
-        font-size: 1rem;
-        width: 35px;
-        height: 35px;
-        border: 1px solid var(--second-color);
-        margin: 0.3rem;
-    }
-    .footer-container p {
-        font-size: .9rem;
     }
 }
 

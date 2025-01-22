@@ -75,58 +75,6 @@ _____scroll active_____
 // }
 // window.addEventListener('scroll', scrollActive)
 
-/* 
-
-_____scroll reveal animation_____
-*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 2000,
-    delay: 200,
-    reset: true
-});
-
-// _____Scroll Home_____
-sr.reveal('.home-title',{});
-sr.reveal('.home-button1', {delay: 200}); 
-sr.reveal('.home-button2', {delay: 200}); 
-sr.reveal('.home-img', {delay: 300}); 
-sr.reveal('.home-social-contact-icon', {interval: 100}); 
-
-// _____Scroll About_____
-sr.reveal('.about-img',{delay: 300});
-sr.reveal('.about-title',{delay: 200});
-sr.reveal('.about-text',{delay: 200});
-sr.reveal('.fun-fact',{delay: 200});
-sr.reveal('.fun-fact-social-icon', {interval: 100});
-
-// _____scroll services_____
-sr.reveal('.services-container',{delay: 200});
-
-// _____scroll help_____
-sr.reveal('.help-container',{delay: 200});
-
-// _____scroll works_____
-sr.reveal('.works-container',{delay: 200});
-
-// _____scroll admin_____
-sr.reveal('.admin-container',{delay: 200});
-
-// _____scroll skills_____ 
-sr.reveal('.skills-title',{delay: 200});
-sr.reveal('.skills-data',{interval: 100});
-sr.reveal('.skills-img',{delay: 300});
-
-// _____scroll testimonials_____
-sr.reveal('.testimonials-container',{delay: 200});
-
-// scroll contacts
-sr.reveal('.contacts-container',{delay: 200});
-
-// scrool footer
-sr.reveal('.contacts-container',{delay: 200});
-
 // Swiper Navigation
 var swiper = new Swiper(".works-content", {
     slidesPerView: 3,
@@ -182,3 +130,55 @@ $('.testimonials-content').owlCarousel({
         },
     }
 })
+
+/* 
+
+_____scroll reveal animation_____
+*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    delay: 200,
+    reset: true
+});
+
+// _____Scroll Home_____
+sr.reveal('.home-title',{});
+sr.reveal('.home-button1', {delay: 200}); 
+sr.reveal('.home-button2', {delay: 200}); 
+sr.reveal('.home-img', {delay: 300}); 
+sr.reveal('.home-social-contact-icon', {interval: 100}); 
+
+// _____Scroll About_____
+sr.reveal('.about-img',{delay: 300});
+sr.reveal('.about-title',{delay: 200});
+sr.reveal('.about-text',{delay: 200});
+sr.reveal('.fun-fact',{delay: 200});
+sr.reveal('.fun-fact-social-icon', {interval: 100});
+// 
+// _____scroll services_____
+sr.reveal('.services-container',{delay: 200});
+
+// _____scroll help_____
+sr.reveal('.help-container',{delay: 200});
+
+// _____scroll works_____
+sr.reveal('.works-container',{delay: 200});
+// 
+// _____scroll admin_____
+sr.reveal('.admin-container',{delay: 200});
+
+// _____scroll skills_____ 
+sr.reveal('.skills-title',{delay: 200});
+sr.reveal('.skills-data',{interval: 100});
+sr.reveal('.skills-img',{delay: 300});
+// 
+// _____scroll testimonials_____
+sr.reveal('.testimonials-container',{delay: 200});
+// 
+// scroll contacts
+sr.reveal('.contacts-container',{delay: 200});
+// 
+// scrool footer
+sr.reveal('.contacts-container',{delay: 200});
