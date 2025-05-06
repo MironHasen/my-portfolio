@@ -12,7 +12,10 @@ body {
   scroll-behavior: smooth;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
-  /* background-color: var(--third-color); */
+  /* background-image: url("files/images/background-img.png"); */
+  /* background-size: cover;          */
+  /* background-repeat: no-repeat;    */
+  /* background-position: center;   */
 }
 h1,
 h2,
@@ -1192,7 +1195,7 @@ _____works section_____
   max-width: 1200px;
   width: 100%;
   max-height: 100vh;
-  margin-top: 7rem;
+  /* margin-top: 7rem; */
 }
 .works-title {
   text-align: center;
