@@ -40,6 +40,11 @@
                 <a href="#" class="nav-logo">Miron</a>
             </div>
 
+            <div>
+                <P style="color: red; cursor: pointer;"><span style="color: rgba(0, 204, 102);"><i class="fa-solid fa-phone"></i></span>
+                    &nbsp;Call Now: <span style="color: #ccffff;">&nbsp;+880188617710</span></P>
+            </div>
+
             <!-- _____navigation bar_____ -->
             <div class="nav-menu" id="nav_menu">
                 <ul class="nav-list">
@@ -48,6 +53,7 @@
                     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="#works" class="nav-link">Works</a></li>
                     <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link" style="color: rgba(0, 204, 102); font-size: 1.3rem">FAQ</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
@@ -67,12 +73,15 @@
 
         _____home section_____
         -->
-        <section class="home-container" id="home">  
+        <section class="home-container" id="home"> 
+            <video class="home-bg-video" autoplay muted loop playsinline>
+                <source src="files/videos/pc.mp4" type="video/mp4">
+              </video> 
             
             <div class="home-content">           
                 <div class="home-data">                
                     <div>
-                        <h1 class="home-title">Hi,<br>I'm<span class="home-title-name">Miron Hasen</span><br>Web Designer & Developer</h1>
+                        <h1 class="home-title">Hi,<br>I'm<span class="home-title-name">Miron Hasan</span><br>Web Designer & Developer</h1>
                     </div>
 
                     <div class="home-contact-data">
@@ -161,11 +170,11 @@
 
             <div class="fun-fact">
                 <h2 class="fun-fact-title">Do You Know ?</h2>
-                <h2 class="fun-fact-title2">I'm A <span>Content Creator!</span></h2>
+                <h2 class="fun-fact-title2 typewriter">I'm A <span>Content Creator!</span></h2>
                 <div class="fun-fact-subtitle">
                     <span>Yes!</span>
-                    <p class="">I Make Videos On Web Programming</p>
-                    <p class="">You Can <span>Follow Me!</span></p>
+                    <p>I Make Videos On Web Programming</p>
+                    <p class="typewriter-follow">You Can <span>Follow Me!</span></p>
                     <div class="fun-fact-social">
                         <a href="https://www.facebook.com/Mir0nHasan/" class="home-social-contact-icon"><i class='bx bxl-facebook-circle'></i></a>
                         <a href="https://www.youtube.com/@Mir0nHasen/" class="home-social-contact-icon"><i class='bx bxl-youtube'></i></a>
@@ -184,7 +193,7 @@
         <section class="services-container" id="services">
 
             <h1 class="services-title">My Services!</h1>
-
+        
                 <div class="services-content">      
                     <div class="cards">                  
                         <div class="card">
@@ -259,8 +268,7 @@
     -->
     <section class="works-container swiper" id="works">
         
-        <!-- _____title_____ -->
-        <h1 class="works-title">See My Works!</h1>
+         <h1 class="works-title">See My Works!</h1>
 
         <div class="works-content">
             <div class="card-wrapper swiper-wrapper">
@@ -286,6 +294,24 @@
                 </div>
 
                 <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <img src="files/images/ecommerce.png" class="card-img" alt="">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">E-Commerce Website</h2>
+                        <br>
+                        <p class="description">
+                            ( I make this E-Commerce site using React with React Router )
+                        </p>
+                        <br>
+                        <button class="button"><a href="ecommerce.html">View more..</a></button>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
                     <div class="image-content"> 
                         <span class="overlay"></span>
                         <div class="card-image">
@@ -300,7 +326,7 @@
                             ( I make this Application using React with Material UI ) 
                         </p>
                         <br>
-                        <button class="button"><a href="admin.html">View more..</a></button>
+                        <button class="button-disabled"><a href="admin.html">Loading..</a></button>
                     </div>
                 </div>
 
@@ -338,41 +364,6 @@
                         </p>
                         <br>
                         <button class="button"><a href="social.html">View more..</a></button>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="files/images/ecommerce.png" class="card-img" alt="">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">E-Commerce Website</h2>
-                        <br>
-                        <p class="description">
-                            ( I make this E-Commerce site using React with React Router )
-                        </p>
-                        <br>
-                        <button class="button"><a href="ecommerce.html">View more..</a></button>
-                    </div>
-                </div>
-                <div class="card swiper-slide">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="files/images/realstate.png" class="card-img" alt="">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Real-State Website</h2>
-                        <br>
-                        <p class="description">
-                            ( I make this Real-State site using React with React Router & Tailwind Css )
-                        </p>
-                        <br>
-                        <button class="button"><a href="realstate.html">View more..</a></button>
                     </div>
                 </div>
 
@@ -589,10 +580,8 @@
                 </div>
     </div>
     </section>
-    <!-- 
     
-    _____Testimonials Section_____
-    -->
+    <!-- _____Testimonials Section_____ -->
     <section class="testimonials-container">
         <header>
             <h1 class="testimonial-title">What Clients Say About Me ?</h1>
@@ -771,11 +760,67 @@
             </div>
         </div>
 
-    </section> 
-    <!-- 
+    </section>
     
-    _____Contacts Section_____
-     -->
+    <!-- FAQ section -->
+     <section class="faq-wrapper" id="faq">
+        <h1>Frequently ASked Questions</h1>
+        <br>
+        <br>
+
+        <div class="faq active">
+            <button class="accordion">
+                What is this ?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="panel">
+                <p>This is awesome faq system that is important for a website.</p>
+            </div>
+        </div>
+
+        <div class="faq active">
+            <button class="accordion">
+                What is this ?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel">
+                <p>This is awesome faq system that is important for a website.</p>
+            </div>
+        </div>
+
+        <div class="faq active">
+            <button class="accordion">
+                What is this ?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel">
+                <p>This is awesome faq system that is important for a website.</p>
+            </div>
+        </div>
+
+        <div class="faq active">
+            <button class="accordion">
+                What is this ?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel">
+                <p>This is awesome faq system that is important for a website.</p>
+            </div>
+        </div>
+
+        <div class="faq active">
+            <button class="accordion">
+                What is this ?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel">
+                <p>This is awesome faq system that is important for a website.</p>
+            </div
+        </div>
+     </section>
+
+    <!-- _____Contacts Section_____ -->
     <section class="contacts-container" id="contact">
          <div class="contact_background">
             <h3 class="contact_title"><span>Get In Touch</span> With Me</h3>
@@ -787,32 +832,43 @@
             </div>
             <p class="contact_details">I'm always available for your project. Wating for your <span>Response!</span></p>
          </div>
+
          <div class="contact_content">
             <div class="contact_info">
                 <div class="fas_contact">
                     <div>
                         <span><i class="fas fa-mobile-alt"></i></span>
                         <span><i class='bx bxs-phone-call' ></i>&nbsp;&nbsp;Call Now</span>
+                        <br>
                         <a href="tel:+1234567890"><span class="text">+8801886177100</span></a>
                     </div>
                     <div>
                         <span><i class="fas fa-envelope-open"></i></span>
                         <span>E-mail</span>
                         <a href="mailto:mir0n.hasen@gmail.com?subject=Hello&body=I%20would%20like%20to%20get%20in%20touch!">
-                            <span class="text">mir0n.hasen@gmail.com</span>
+                            <br>
+                            <span class="text">mironhasan.contact@gmail.com</span>
                         </a>
                     </div>
                     <div>
                         <span><i class="fas fa-map-marker-alt"></i></span>
                         <span>Address</span>
+                        <br>
                         <a href="https://www.google.com/maps?q=+Miron+Software,+Dhaka" target="_blank"><span class="text">Dhaka Main Street, Bangladesh</span></a>
                     </div>
                     <div>
                         <span><i class="fas fa-clock"></i></span>
                         <span>My Services</span>
+                        <br>
                         <span class="text">24 Hours</span>
                     </div>
                 </div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.553660162674!2d90.39226668101435!3d23.86997822898835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c56316c49d07%3A0x62e6d117f1d23d75!2sUttara%2C%20Sector%207%20Park!5e0!3m2!1sen!2sbd!4v1746426244875!5m2!1sen!2sbd" 
+                width="125%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <br>
+                <br>
+                <br>
 
                 <div class="contact_form">
                     <form method="POST" id="form">
@@ -833,7 +889,7 @@
                     </form>
                 </div>
             </div>
-         </div>         
+         </div>
     </section>
  
     <!-- _____footer_____ -->
@@ -848,7 +904,7 @@
             <a href="https://www.tiktok.com/@mironhasen/" class=""><i class='bx bxl-tiktok'></i></a>  
         </div>
         <div>
-            <p>Copyright &copy;2025 Design & Developed by <span>Miron</span></p>
+            <p>© 2025 All right reserved | Design & Developed by <span>Miron</span></p>
         </div>
      </section>
     </main>

@@ -1,7 +1,5 @@
-/*
 
-_____mobile navbar_____
-*/
+// _____mobile navbar_____
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
@@ -13,10 +11,8 @@ const showMenu = (toggleId, navId) => {
     }
 }
 showMenu('nav_toggle','nav_menu');
-/*
 
-_____remove mobile menu_____
-*/
+// _____remove mobile menu_____
 const navLink = document.querySelectorAll('.nav-link')
 
 function linkAction () {
@@ -25,60 +21,39 @@ function linkAction () {
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show')
 }
-navLink.forEach(n => n.addEventListener('click', linkAction))
-/*
+navLink.forEach(n => n.addEventListener('click', linkAction));
 
-_____active scroll_____
-*/
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav-list a');
+// _____active scroll_____
+const headerOffset = 70; 
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+navLink.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
 
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('.header nav-list a [href*= '+ id +']').classList.add('active');
-            })
+    // Remove active from all and add to clicked
+    navLink.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
 
-        }
+    // Scroll with offset
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    const elementPosition = targetSection.offsetTop;
+    const offsetPosition = elementPosition - headerOffset;
 
-    })
-}
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
 
-/*
-
-_____scroll active_____
-*/
-// const sections = document.querySelectorAll('section[id]')
-
-// const scrollActive = () =>{
-    // const scrollDown = window.scrollY
-// 
-//   sections.forEach(current => {
-        // const sectionHeight = current.offsetHeight,
-            //   sectionTop = current.offsetTop - 58,
-            //   sectionId = current.getAttribute('id'),
-            //   sectionsClass = document.querySelector('.nav_menu a[href*=' + sectionId + ']')
-        // 
-        // if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            // sectionsClass.classList.add('active')
-        // } else {
-            // sectionsClass.classList.remove('active')
-        // }                                                    
-    // })
-// }
-// window.addEventListener('scroll', scrollActive)
+    // Close mobile menu
+    document.getElementById('nav_menu').classList.remove('show');
+  });
+});
 
 // Swiper Navigation
 var swiper = new Swiper(".works-content", {
     slidesPerView: 3,
-    spaceBetween: 25,
+    spaceBetween: 50,
     loop: false,
     autoplay: true,
     centerSlide: 'true',
@@ -226,3 +201,50 @@ form.addEventListener('submit', function(e) {
         }, 3000);
     });
 })
+
+// FAQ
+document.querySelectorAll('.accordion').forEach(button => {
+    button.addEventListener('click', function (e) {
+      const currentlyActive = document.querySelector('.accordion.active');
+  
+      // If there's an open accordion and it's not the one clicked, close it
+      if (currentlyActive && currentlyActive !== this) {
+        currentlyActive.classList.remove('active');
+        currentlyActive.querySelector('i')?.classList.remove('rotate');
+        currentlyActive.nextElementSibling.style.maxHeight = null;
+      }
+  
+      const panel = this.nextElementSibling;
+      const icon = this.querySelector('i');
+      const isActive = this.classList.contains('active');
+  
+      // Toggle current one
+      if (isActive) {
+        this.classList.remove('active');
+        icon?.classList.remove('rotate');
+        panel.style.maxHeight = null;
+      } else {
+        this.classList.add('active');
+        icon?.classList.add('rotate');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+// Typewriter function
+const typewriters = document.querySelectorAll('.typewriter');
+
+// Find the longest text content (flatten inner tags too)
+let maxLength = 0;
+typewriters.forEach(el => {
+  const text = el.textContent.trim();
+  if (text.length > maxLength) {
+    maxLength = text.length;
+  }
+});
+
+// Apply the same width and steps to all
+typewriters.forEach(el => {
+  el.style.setProperty('--ch-width', `${maxLength}ch`);
+  el.style.setProperty('--step-count', maxLength);
+});
